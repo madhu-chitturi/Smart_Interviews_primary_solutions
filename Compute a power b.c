@@ -1,0 +1,71 @@
+                                                                  Compute a power b
+ /* Given 2 numbers - a and b, evaluate ab.
+Note: Do not use any inbuilt functions/libraries for your main logic.
+
+Input Format
+
+First line of input contains T - number of test cases. Its followed by T lines, each line containing 2 numbers - a and b, separated by space.
+
+Constraints
+
+30 points
+1 <= T <= 1000
+0 <= a <= 106
+0 <= b <= 103
+
+70 points
+1 <= T <= 1000
+0 <= a <= 106
+0 <= b <= 109
+
+Output Format
+
+For each test case, print ab, separated by new line. Since the result can be very large, print result % 1000000007
+
+Sample Input 0
+
+4
+5 2
+1 10
+2 30
+10 10
+Sample Output 0
+
+25
+1
+73741817
+999999937
+*/
+
+<=========================== C SOLUTION ================================>
+
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+long long power(long long a,long long b){
+    long long ans=1;
+   while(b!=0){
+        if((b&1)==1){
+            ans=(ans*a)%1000000007;
+        }
+        a=(a*a)%1000000007;
+       b=b>>1;
+    }
+    return ans%1000000007;
+} 
+
+int main() {
+
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */ 
+    int t;
+    scanf("%d",&t);
+    while(t--){
+        long long a,b;
+        scanf("%lld%lld",&a,&b);
+        printf("%lld\n",power(a,b));
+        
+    }
+    
+    return 0;
+}
