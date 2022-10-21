@@ -1,0 +1,20 @@
+t=int(input())
+for _ in range(t):
+    n=int(input())
+    arr=list(map(int,input().strip().split()))
+    p1=0
+    p2=n-1
+    lm=arr[0]
+    rm=arr[n-1]
+    sum=0
+    while(p1!=p2):
+        min1=min(arr[p1],arr[p2])
+        if(arr[p1]<arr[p2]):
+            p1+=1
+            lm=max(lm,arr[p1])
+            sum+=lm-arr[p1]
+        else:
+            p2-=1
+            rm=max(rm,arr[p2])
+            sum+=rm-arr[p2]
+    print(sum)
